@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Mantenimiento</title>
+</head>
+<body>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="mantenimiento">
+        <h1>Mantenimiento de Productos</h1>
+        <form id="productForm">
+            <input type="hidden" id="productId" value="">
+            <div class="form-grid">
+                <input type="text" id="productName" placeholder="Nombre del Producto" required>
+                <input type="text" id="productCategory" placeholder="Categoría" required>
+                <input type="number" id="productPrice" placeholder="Precio" required>
+                <input type="number" id="productStock" placeholder="Stock" required>
+                <input type="text" id="productDescription" placeholder="Descripción" required>
+                <input type="text" id="productSupplier" placeholder="Proveedor" required>
+                <input type="text" id="productCode" placeholder="Código del Producto" required>
+                <input type="date" id="productDate" required>
+                <input type="text" id="productImage" placeholder="URL de Imagen" required>
+                <input type="text" id="productStatus" placeholder="Estado" required>
+            </div>
+            <button type="submit">Guardar Producto</button>
+        </form>
+
+        <h2>Lista de Productos</h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Descripción</th>
+                    <th>Proveedor</th>
+                    <th>Código</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los productos se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="producto.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const simpleMenu = document.querySelector('.simple-menu');
+
+        menuToggle.addEventListener('click', () => {
+            if (sidebar) sidebar.classList.toggle('active');
+            if (simpleMenu) simpleMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

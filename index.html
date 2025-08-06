@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Tienda Cafetería Virtual</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="sidebar">
+
+            <h2>Tienda Cafetería</h2>
+            <ul>
+                <li><a href="#" onclick="loadPage('configuracion')">Configuración</a></li>
+                <li><a href="#" onclick="loadPage('mantenimiento')">Mantenimiento</a></li>
+                <li><a href="#" onclick="loadPage('ventas')">Ventas</a></li>
+                <li><a href="#" onclick="loadPage('inventarios')">Inventarios</a></li>
+                <li><a href="#" onclick="logout()">Salir del Sistema</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div id="content">
+                <h1>Bienvenido a la Tienda Cafetería</h1>
+                <p>Selecciona una opción del menú para comenzar.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const simpleMenu = document.querySelector('.simple-menu');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            simpleMenu.classList.toggle('active');
+        });
+
+        function loadPage(page) {
+
+            const content = document.getElementById('content');
+            if (page === 'mantenimiento') {
+                fetch('mantenimiento.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al cargar la página: ' + response.statusText);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        content.innerHTML = data;
+                        // Cargar el script de mantenimiento
+                   const script = document.createElement('script');
+
+                        script.src = 'dasboard.js'; 
+                        // Asegúrate de que el script2.js esté en la misma carpeta
+                        document.body.appendChild(script);
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar la página:', error);
+                        content.innerHTML = '<h1>Error al cargar la página de mantenimiento</h1>';
+                    });
+            } else {
+                // Aquí puedes manejar otras secciones
+                content.innerHTML = `
+                    <h1>${page.charAt(0).toUpperCase() + page.slice(1)}</h1>
+                    <p>Contenido para la sección de ${page}.</p>
+                `;
+            }
+        }
+
+        function logout() {
+            alert('Has salido del sistema.');
+            // Aquí puedes agregar lógica para redirigir al usuario a la página de inicio de sesión
+        }
+    </script>
+</body>
+</html>

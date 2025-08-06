@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mantenimiento {
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .mantenimiento {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+
+
+h1, h2 {
+    color: #333;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+button {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    button {
+        padding: 10px;
+    }
+}
+
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    min-width: 120px;
+    padding: 12px 20px;
+}
+
+@media (min-width: 768px) {
+    button {
+        padding: 10px 15px;
+    }
+}
+
+
+button:hover {
+    background-color: #218838;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 20px 0 15px 0;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    table {
+        display: table;
+    }
+}
+
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+td button:hover {
+    background-color: #0056b3;
+}
